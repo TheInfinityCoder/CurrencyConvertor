@@ -69,3 +69,14 @@ btn.addEventListener("click", async (e) => {
       "Failed to get exchange rate. Please try again.";
   }
 });
+const swapIcon = document.querySelector(".dropdown i");
+swapIcon.addEventListener("click", () => {
+  const temp = fromCurr.value;
+  fromCurr.value = toCurr.value;
+  toCurr.value = temp;
+  updateFlag(fromCurr);
+  updateFlag(toCurr);
+});
+dropdowns.forEach(select =>
+  select.addEventListener("change", () => btn.click())
+);
